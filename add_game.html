@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Game</title>
+</head>
+<body>
+    <h1>Add a New Game</h1>
+    <form method="POST">
+        <label for="home_team_id">Home Team:</label><br>
+        <select id="home_team_id" name="home_team_id" required>
+            <option value="">Select Home Team</option>
+            {% for team in teams %}
+                <option value="{{ team[0] }}">{{ team[1] }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="away_team_id">Away Team:</label><br>
+        <select id="away_team_id" name="away_team_id" required>
+            <option value="">Select Away Team</option>
+            {% for team in teams %}
+                <option value="{{ team[0] }}">{{ team[1] }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="game_date">Game Date:</label><br>
+        <input type="text" id="game_date" name="game_date" required placeholder="YYYY-MM-DD"><br><br>
+
+        <label for="home_team_score">Home Team Score:</label><br>
+        <input type="number" id="home_team_score" name="home_team_score" required><br><br>
+
+        <label for="away_team_score">Away Team Score:</label><br>
+        <input type="number" id="away_team_score" name="away_team_score" required><br><br>
+
+        <label for="winner_team_id">Winning Team:</label><br>
+        <select id="winner_team_id" name="winner_team_id" required>
+            <option value="">Select Winning Team</option>
+            {% for team in teams %}
+                <option value="{{ team[0] }}">{{ team[1] }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <input type="submit" value="Add Game">
+    </form>
+</body>
+</html>
