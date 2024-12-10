@@ -15,7 +15,7 @@ def get_db_connection():
 # Home route with navigation buttons
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route('/add_team', methods=['GET', 'POST'])
 def add_team():
