@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quarterback Stats Report</title>
+</head>
+<body>
+    <h1>Quarterback Stats Report</h1>
+    
+    <form method="POST" action="/report_qb_stats">
+        <label for="player_id">Player ID:</label>
+        <input type="text" id="player_id" name="player_id" value="{{ filters['player_id'] or '' }}"><br>
+
+        <label for="min_yards">Minimum Yards:</label>
+        <input type="text" id="min_yards" name="min_yards" value="{{ filters['min_yards'] or '' }}"><br>
+
+        <label for="min_touchdowns">Minimum Touchdowns:</label>
+        <input type="text" id="min_touchdowns" name="min_touchdowns" value="{{ filters['min_touchdowns'] or '' }}"><br>
+
+        <label for="game_id">Game ID:</label>
+        <input type="text" id="game_id" name="game_id" value="{{ filters['game_id'] or '' }}"><br>
+        <br>
+        <button type="submit">Generate Report</button>
+    </form>
+
+    {% if results %}
+        <h2>Report Results:</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Player ID</th>
+                    <th>Passing Yards</th>
+                    <th>Touchdowns</th>
+                    <th>Interceptions</th>
+                    <th>Game ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No data found for the given filters.</p>
+    {% endif %}
+
+    <br>
+    <button onclick="location.href='/'">Go Back to Home</button>
+
+</body>
+</html>
