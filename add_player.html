@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Player</title>
+</head>
+<body>
+    <h1>Add New Player</h1>
+    <form action="/add_player" method="POST">
+        <label>Player Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label>Team ID:</label>
+        <input type="number" name="team_id" required><br>
+
+        <label>Position:</label>
+        <input type="text" name="position" required><br>
+
+        <label>Age:</label>
+        <input type="number" name="age" min="18" required><br>
+
+        <button type="submit">Add Player</button>
+    </form>
+    <br>
+    <button onclick="location.href='/'">Go Back to Home</button>
+</body>
+</html>
